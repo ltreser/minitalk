@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 				;
 			else if (((av[2][i] & 1) == 0) && (kill(server_pid, SIGUSR2), 1))
 				;
-			usleep(50);
+			usleep(1000);
 			av[2][i] >>= 1;
 		}
 	}
