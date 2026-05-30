@@ -6,19 +6,19 @@
 /*   By: ltreser <ltreser@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 01:30:43 by ltreser           #+#    #+#             */
-/*   Updated: 2024/03/04 04:10:00 by ltreser          ###   ########.fr       */
+/*   Updated: 2024/03/08 01:40:25 by ltreser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/includes/libft.h"
 #include <signal.h>
 #include <unistd.h>
-#include "../libft/includes/libft.h"
 
 int	main(int ac, char **av)
 {
-	int server_pid;
-	int i;
-	int bit_index;
+	int	server_pid;
+	int	i;
+	int	bit_index;
 
 	i = -1;
 	if (ac != 3)
@@ -29,13 +29,13 @@ int	main(int ac, char **av)
 	while (av[2][++i])
 	{
 		bit_index = 0;
-		while(bit_index++ < 8)
+		while (bit_index++ < 8)
 		{
 			if (((av[2][i] & 1) == 1) && (kill(server_pid, SIGUSR1), 1))
 				;
 			else if (((av[2][i] & 1) == 0) && (kill(server_pid, SIGUSR2), 1))
 				;
-			usleep(1000);
+			usleep(200);
 			av[2][i] >>= 1;
 		}
 	}

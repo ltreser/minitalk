@@ -6,7 +6,7 @@
 #    By: ltreser <ltreser@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/23 05:57:35 by ltreser           #+#    #+#              #
-#    Updated: 2024/03/04 03:00:01 by ltreser          ###   ########.fr        #
+#    Updated: 2024/03/08 00:35:19 by ltreser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ $(NAME2): $(LIBFT) $(OBJ2)
 
 clean:
 	$(RM) $(OBJ1) $(OBJ2)
+	make -C libft clean
 
 fclean: clean
 	make -C libft fclean
